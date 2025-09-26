@@ -9,15 +9,15 @@ public class Jep507Demo {
         Object e = null;
 
         System.out.println("=== instanceof: Before vs Java 25 ===");
-        beforeInstanceof(a); beforeInstanceof(b); beforeInstanceof(c); beforeInstanceof(d); beforeInstanceof(e);
+        beforeJava25Instanceof(a); beforeJava25Instanceof(b); beforeJava25Instanceof(c); beforeJava25Instanceof(d); beforeJava25Instanceof(e);
         java25Instanceof(a);  java25Instanceof(b);  java25Instanceof(c);  java25Instanceof(d);  java25Instanceof(e);
 
         System.out.println("\n=== switch(Object): Before vs Java 25 ===");
-        System.out.println("beforeSwitch(a): " + beforeSwitch(a));
-        System.out.println("beforeSwitch(b): " + beforeSwitch(b));
-        System.out.println("beforeSwitch(c): " + beforeSwitch(c));
-        System.out.println("beforeSwitch(d): " + beforeSwitch(d));
-        System.out.println("beforeSwitch(e): " + beforeSwitch(e));
+        System.out.println("beforeSwitch(a): " + beforeJava25Switch(a));
+        System.out.println("beforeSwitch(b): " + beforeJava25Switch(b));
+        System.out.println("beforeSwitch(c): " + beforeJava25Switch(c));
+        System.out.println("beforeSwitch(d): " + beforeJava25Switch(d));
+        System.out.println("beforeSwitch(e): " + beforeJava25Switch(e));
         System.out.println("afterSwitch(a):  " + java25Switch(a));
         System.out.println("afterSwitch(b):  " + java25Switch(b));
         System.out.println("afterSwitch(c):  " + java25Switch(c));
@@ -36,7 +36,7 @@ public class Jep507Demo {
     // ------------------------------------------------------------
     // 1) instanceof
     // ------------------------------------------------------------
-    static void beforeInstanceof(Object o) {
+    static void beforeJava25Instanceof(Object o) {
         if (o instanceof Integer) {
             int i = (Integer) o; // manual unboxing
             System.out.println("[before] int=" + i);
@@ -72,7 +72,7 @@ public class Jep507Demo {
     // ------------------------------------------------------------
     // 2) switch over Object
     // ------------------------------------------------------------
-    static String beforeSwitch(Object o) {
+    static String beforeJava25Switch(Object o) {
         if (o == null) return "null";
         if (o instanceof Integer i) {
             return (i % 2 == 0) ? "even int" : "odd int";
