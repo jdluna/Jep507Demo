@@ -10,7 +10,7 @@ public class Jep507Demo {
 
         System.out.println("=== instanceof: Before vs Java 25 ===");
         beforeInstanceof(a); beforeInstanceof(b); beforeInstanceof(c); beforeInstanceof(d); beforeInstanceof(e);
-        afterInstanceof(a);  afterInstanceof(b);  afterInstanceof(c);  afterInstanceof(d);  afterInstanceof(e);
+        java25Instanceof(a);  java25Instanceof(b);  java25Instanceof(c);  java25Instanceof(d);  java25Instanceof(e);
 
         System.out.println("\n=== switch(Object): Before vs Java 25 ===");
         System.out.println("beforeSwitch(a): " + beforeSwitch(a));
@@ -18,11 +18,11 @@ public class Jep507Demo {
         System.out.println("beforeSwitch(c): " + beforeSwitch(c));
         System.out.println("beforeSwitch(d): " + beforeSwitch(d));
         System.out.println("beforeSwitch(e): " + beforeSwitch(e));
-        System.out.println("afterSwitch(a):  " + afterSwitch(a));
-        System.out.println("afterSwitch(b):  " + afterSwitch(b));
-        System.out.println("afterSwitch(c):  " + afterSwitch(c));
-        System.out.println("afterSwitch(d):  " + afterSwitch(d));
-        System.out.println("afterSwitch(e):  " + afterSwitch(e));
+        System.out.println("afterSwitch(a):  " + java25Switch(a));
+        System.out.println("afterSwitch(b):  " + java25Switch(b));
+        System.out.println("afterSwitch(c):  " + java25Switch(c));
+        System.out.println("afterSwitch(d):  " + java25Switch(d));
+        System.out.println("afterSwitch(e):  " + java25Switch(e));
 
         System.out.println("\n=== switch(int) with guards (patterns) vs pre-J25 ===");
         System.out.println("primitiveSwitchGuards(10): " + primitiveSwitchGuards(10));
@@ -53,7 +53,7 @@ public class Jep507Demo {
         }
     }
 
-    static void afterInstanceof(Object o) {
+    static void java25Instanceof(Object o) {
         if (o instanceof int i && i > 10) {
             System.out.println("[J25] large int=" + i);
         } else if (o instanceof int i) {
@@ -85,7 +85,7 @@ public class Jep507Demo {
         }
     }
 
-    static String afterSwitch(Object o) {
+    static String java25Switch(Object o) {
         return switch (o) {
             case null               -> "null";
             case int i when i % 2 == 0 -> "even int";
